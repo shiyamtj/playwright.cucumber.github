@@ -34,6 +34,9 @@ jobs:
         env:
           BROWSER: ${{ github.event.inputs.browser }}
 
+      - name: Store cucumber report
+        run: bash report.sh
+
       - uses: actions/upload-artifact@v3
         if: always()
         with:
