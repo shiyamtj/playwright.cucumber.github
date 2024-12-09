@@ -75,7 +75,7 @@ function displayData(page) {
 
   paginatedData.forEach((item) => {
     dataList.innerHTML += `
-          <a href="${item.folderName}/cucumber-report.html" class="list-group-item list-group-item-action">
+          <a href=${item.folderName}/cucumber-report.html class="list-group-item list-group-item-action">
               <h5 class="mb-1">${item.folderName}</h5>
           </a>
       `
