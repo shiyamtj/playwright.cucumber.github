@@ -1,30 +1,7 @@
 let originalData = []
-// let originalData = [
-//   {
-//     folderName: 'report_2024-12-10_00-56-51',
-//     linkText: 'report_2024-12-10_00-56-51',
-//   },
-//   {
-//     folderName: 'report_2024-12-10_01-01-57',
-//     linkText: 'report_2024-12-10_01-01-57',
-//   },
-//   {
-//     folderName: 'report_2024-12-10_01-02-40',
-//     linkText: 'report_2024-12-10_01-02-40',
-//   },
-//   {
-//     folderName: 'report_2024-12-10_01-02-43',
-//     linkText: 'report_2024-12-10_01-02-43',
-//   },
-//   {
-//     folderName: 'report_2024-12-10_09-54-31',
-//     linkText: 'report_2024-12-10_09-54-31',
-//   },
-// ]
-
 let filteredData = []
 
-const itemsPerPage = 3
+const itemsPerPage = 10
 let currentPage = 1
 
 // Fetch data from JSON file
