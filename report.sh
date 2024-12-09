@@ -3,19 +3,26 @@
 
 # Create timestamp for unique folder name
 TIMESTAMP=$(date +"%Y-%m-%d_%H-%M-%S")
+REPORT_HISTORY_DIR="report-history"
 
 # Create reports history directory if it doesn't exist
-mkdir -p ./report-history/report_${TIMESTAMP}
+mkdir -p "./$REPORT_HISTORY_DIR/report_${TIMESTAMP}"
 
-cp -r ./report/. ./report-history/report_${TIMESTAMP}/.
-echo "Latest report moved to report-history/report_${TIMESTAMP}"
+# Copy files to report history directory
+for file in index.html app.js; do
+    cp -r ./$file "./$REPORT_HISTORY_DIR/."
+    echo "Copied $file to $REPORT_HISTORY_DIR"
+done
+
+cp -r ./report/. "./$REPORT_HISTORY_DIR/report_${TIMESTAMP}/."
+echo "Latest report moved to $REPORT_HISTORY_DIR/report_${TIMESTAMP}"
 
 # Create JSON array opening
 echo "[" > data.json
 
 # Read directories and add to JSON
 first=true
-for dir in ./report-history/report_*/; do
+for dir in ./$REPORT_HISTORY_DIR/report_*/; do
     if [ -d "$dir" ]; then
         dirname=$(basename "$dir")
         if [ "$first" = true ]; then
@@ -35,3 +42,6 @@ done
 
 # Close JSON array
 echo "]" >> data.json
+
+cp -r ./data.json ./$REPORT_HISTORY_DIR/.
+echo "Copied data.json to $REPORT_HISTORY_DIR"
