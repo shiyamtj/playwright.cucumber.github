@@ -1,5 +1,6 @@
 
 #!/bin/bash
+find . -type d -print
 
 # Create timestamp for unique folder name
 TIMESTAMP=$(date +"%Y-%m-%d_%H-%M-%S")
@@ -8,7 +9,16 @@ TIMESTAMP=$(date +"%Y-%m-%d_%H-%M-%S")
 mkdir -p ./report-history/report_${TIMESTAMP}
 
 cp -r ./report/. ./report-history/report_${TIMESTAMP}/.
-echo "Report moved to report-history/report_${TIMESTAMP}"
+echo "Latest report moved to report-history/report_${TIMESTAMP}"
+
+# Copying existing reports to history folder
+for dir in ./report_*/; do
+    if [ -d "$dir" ]; then
+        dirname=$(basename "$dir")
+        mv ./$dirname ./report-history/$dirname
+        echo "Report $dirname moved to report-history/$dirname"
+    fi
+done
 
 # Create index.html with all report links
 echo "<!DOCTYPE html>
