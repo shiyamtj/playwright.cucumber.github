@@ -37,6 +37,14 @@ jobs:
       - name: Store cucumber report
         run: bash report.sh
 
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: peaceiris/actions-gh-pages@v2
+        env:
+          PERSONAL_TOKEN: ${{ secrets.TOKEN }}
+          PUBLISH_BRANCH: gh-pages
+          PUBLISH_DIR: report-history
+
       - uses: actions/upload-artifact@v3
         if: always()
         with:
