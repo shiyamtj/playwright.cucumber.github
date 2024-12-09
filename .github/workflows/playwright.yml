@@ -37,6 +37,13 @@ jobs:
       - name: Store cucumber report
         run: bash report.sh
 
+      - name: Get reports history
+        uses: actions/checkout@v2
+        continue-on-error: true
+        with:
+          ref: gh_pages
+          path: report-history
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: peaceiris/actions-gh-pages@v2
