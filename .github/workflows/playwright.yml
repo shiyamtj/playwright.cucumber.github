@@ -34,15 +34,15 @@ jobs:
         env:
           BROWSER: ${{ github.event.inputs.browser }}
 
-      - name: Store cucumber report
-        run: bash report.sh
-
       - name: Get reports history
         uses: actions/checkout@v2
         continue-on-error: true
         with:
           ref: gh_pages
-          path: report-history
+          path: gh_pages
+
+      - name: Store cucumber report
+        run: bash report.sh
 
       - name: Deploy to GitHub Pages
         id: deployment
