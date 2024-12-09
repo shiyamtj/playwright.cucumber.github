@@ -51,6 +51,8 @@ jobs:
           PERSONAL_TOKEN: ${{ secrets.TOKEN }}
           PUBLISH_BRANCH: gh_pages
           PUBLISH_DIR: report-history
+        with:
+          keepFiles: true
 
       - uses: actions/upload-artifact@v4
         if: always()
