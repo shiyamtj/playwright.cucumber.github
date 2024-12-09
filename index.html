@@ -1,23 +1,58 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Test Report History</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 40px; }
-        h1 { color: #333; }
-        .reports { margin-top: 20px; }
-        a { color: #0366d6; text-decoration: none; display: block; margin: 10px 0; }
-        a:hover { text-decoration: underline; }
-    </style>
-</head>
-<body>
-    <h1>Test Report History</h1>
-    <div class='reports'>
-<a href='./report_2024-12-09_11-14-02/cucumber-report.html'>report_2024-12-09_11-14-02</a>
-<a href='./report_2024-12-09_11-20-59/cucumber-report.html'>report_2024-12-09_11-20-59</a>
-<a href='./report_2024-12-09_11-46-40/cucumber-report.html'>report_2024-12-09_11-46-40</a>
-<a href='./report_2024-12-09_11-51-56/cucumber-report.html'>report_2024-12-09_11-51-56</a>
-<a href='./report_2024-12-09_12-05-38/cucumber-report.html'>report_2024-12-09_12-05-38</a>
-    </div>
-</body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Playwright Cucumber GitHub</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="bg-dark text-white py-4 mb-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h1 class="text-center">Playwright Cucumber Testing</h1>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="row mb-4">
+        <div class="col-12">
+          <div class="input-group">
+            <input
+              type="text"
+              id="searchInput"
+              class="form-control"
+              placeholder="Search scenarios..."
+              onkeyup="handleSearch()"
+            />
+            <button
+              class="btn btn-outline-secondary"
+              type="button"
+              onclick="handleSearch()"
+            >
+              Search
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          <div class="list-group mb-4" id="dataList"></div>
+          <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center" id="pagination"></ul>
+          </nav>
+        </div>
+      </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+  </body>
 </html>
