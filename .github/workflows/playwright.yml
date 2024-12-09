@@ -39,7 +39,7 @@ jobs:
         continue-on-error: true
         with:
           ref: gh_pages
-          path: gh_pages
+          path: report-history
 
       - name: Store cucumber report
         run: bash report.sh

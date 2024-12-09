@@ -12,7 +12,7 @@ cp -r ./report/. ./report-history/report_${TIMESTAMP}/.
 echo "Latest report moved to report-history/report_${TIMESTAMP}"
 
 # Copying existing reports to history folder
-for dir in ./report_*/; do
+for dir in ./report-history/report_*/; do
     if [ -d "$dir" ]; then
         dirname=$(basename "$dir")
         mv ./$dirname ./report-history/$dirname
