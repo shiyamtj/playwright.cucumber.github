@@ -21,7 +21,7 @@ jobs:
         working-directory: ./
     strategy:
       matrix:
-        suite: ['@smoke', '@regression']
+        suite: ['smoke', 'regression']
       fail-fast: false
       max-parallel: 2
 
@@ -32,7 +32,7 @@ jobs:
         run: docker build -t playwright-docker .
 
       - name: Run ${{ matrix.suite }} tests
-        run: docker run -e BROWSER=${{ github.event.inputs.browser }} -v "$(pwd)":/app playwright-docker:latest sh -c "yarn install --frozen-lockfile && yarn test --grep ${{ matrix.suite }}"
+        run: docker run -e BROWSER=${{ github.event.inputs.browser }} -v "$(pwd)":/app playwright-docker:latest sh -c "yarn install --frozen-lockfile && yarn test:${{ matrix.suite }}"
 
       - uses: actions/upload-artifact@v4
         if: always()
