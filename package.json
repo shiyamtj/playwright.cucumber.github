@@ -13,6 +13,8 @@
     "typescript": "^5.7.2"
   },
   "scripts": {
-    "test": "cross-env cucumber-js"
+    "test": "cross-env cucumber-js",
+    "test:smoke": "cross-env cucumber-js -t @smoke",
+    "test:regression": "cross-env cucumber-js @regression"
   }
 }

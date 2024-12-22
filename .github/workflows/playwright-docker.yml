@@ -18,22 +18,25 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: .
+        working-directory: ./
+    strategy:
+      matrix:
+        suite: ['@smoke', '@regression']
+      fail-fast: false
+      max-parallel: 2
+
     steps:
       - uses: actions/checkout@v4
 
       - name: Build docker image
         run: docker build -t playwright-docker .
 
-      - name: Run tests on docker image
-        run: docker run -e BROWSER=${{ github.event.inputs.browser }} -v "$(pwd)":/app playwright-docker:latest sh -c "yarn install --frozen-lockfile && yarn test"
+      - name: Run ${{ matrix.suite }} tests
+        run: docker run -e BROWSER=${{ github.event.inputs.browser }} -v "$(pwd)":/app playwright-docker:latest sh -c "yarn install --frozen-lockfile && yarn test --grep ${{ matrix.suite }}"
 
       - uses: actions/upload-artifact@v4
         if: always()
-        env:
-          REPORT_NAME: Cucumber-Report-${{ github.run_id }}
         with:
-          name: ${{ env.REPORT_NAME }}
+          name: ${{ matrix.suite }}-report-${{ github.run_id }}
           path: report/
-          if-no-files-found: warn
           retention-days: 30

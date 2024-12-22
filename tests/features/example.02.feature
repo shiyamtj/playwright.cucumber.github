@@ -1,3 +1,4 @@
+@regression
 Feature: Web Navigation 02
 
   Scenario: Visit website 01

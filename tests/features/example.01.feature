@@ -1,3 +1,4 @@
+@smoke
 Feature: Web Navigation 01
 
   Scenario: Visit website 01
