@@ -28,11 +28,6 @@ jobs:
       - name: Run tests on docker image
         run: docker run -e BROWSER=${{ github.event.inputs.browser }} -v "$(pwd)":/app playwright-docker:latest sh -c "yarn install --frozen-lockfile && yarn test"
 
-      - name: Run tests
-        run: yarn test
-        env:
-          BROWSER: ${{ github.event.inputs.browser }}
-
       - uses: actions/upload-artifact@v4
         if: always()
         env:
