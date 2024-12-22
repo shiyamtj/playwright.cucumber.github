@@ -14,7 +14,7 @@
   },
   "scripts": {
     "test": "cross-env cucumber-js",
-    "test:smoke": "cross-env cucumber-js -t @smoke",
-    "test:regression": "cross-env cucumber-js  -t @regression"
+    "test:smoke": "cross-env cucumber-js -t @smoke --parallel 2",
+    "test:regression": "cross-env cucumber-js  -t @regression --parallel 2"
   }
 }
