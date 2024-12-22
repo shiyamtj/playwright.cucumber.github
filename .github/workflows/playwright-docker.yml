@@ -23,7 +23,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Build docker image
-        run: docker build -t playwright-docker
+        run: docker build -t playwright-docker .
 
       - name: Run tests on docker image
         run: docker run -e BROWSER=${{ github.event.inputs.browser }} -v "$(pwd)":/app playwright-docker:latest sh -c "yarn install --frozen-lockfile && yarn test"
