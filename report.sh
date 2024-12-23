@@ -4,6 +4,7 @@
 # Create timestamp for unique folder name
 TIMESTAMP=$(date +"%Y-%m-%d_%H-%M-%S")
 REPORT_HISTORY_DIR="report-history"
+CURRENT_REPORT_DIR="tests/report"
 
 # Create reports history directory if it doesn't exist
 mkdir -p "./$REPORT_HISTORY_DIR/report_${TIMESTAMP}"
@@ -14,7 +15,7 @@ for file in index.html app.js; do
     echo "Copied $file to $REPORT_HISTORY_DIR"
 done
 
-cp -r ./report/. "./$REPORT_HISTORY_DIR/report_${TIMESTAMP}/."
+cp -r ./$CURRENT_REPORT_DIR/. "./$REPORT_HISTORY_DIR/report_${TIMESTAMP}/."
 echo "Latest report moved to $REPORT_HISTORY_DIR/report_${TIMESTAMP}"
 
 # Create JSON array opening
