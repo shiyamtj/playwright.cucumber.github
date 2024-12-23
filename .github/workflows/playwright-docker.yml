@@ -37,7 +37,9 @@ jobs:
       - name: Generate report
         run: |
           ls -la
-          chmod -R 755 /report
+          ls -R
+          tree
+          chmod -R 755 report
           yarn run posttest
         if: always()
 
