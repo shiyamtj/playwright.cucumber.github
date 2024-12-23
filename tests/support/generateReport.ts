@@ -4,13 +4,13 @@ let browser: string = process.env.BROWSER || 'chromium'
 reporter.generate({
   brandTitle: 'Test Execution Report',
   theme: 'bootstrap',
-  jsonFile: 'report/cucumber-report.json',
-  output: 'report/cucumber-report.html',
+  jsonFile: 'tests/report/cucumber-report.json',
+  output: 'tests/report/cucumber-report.html',
   reportSuiteAsScenarios: true,
   scenarioTimestamp: true,
   launchReport: false,
   columnLayout: 2,
-  screenshotsDirectory: 'report/screenshots/',
+  screenshotsDirectory: 'tests/report/screenshots/',
   storeScreenshots: true,
   ignoreBadJsonFile: true,
 

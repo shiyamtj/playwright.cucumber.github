@@ -5,7 +5,7 @@ module.exports = {
     paths: ['tests/features/**/*.feature'],
     require: ['tests/support/hooks.ts', 'tests/step_definitions/**/*.ts'],
     requireModule: ['ts-node/register'],
-    format: ['json:report/cucumber-report.json'],
+    format: ['json:tests/report/cucumber-report.json'],
     retry: 0,
     parallel: workers,
   },
