@@ -1,3 +1,5 @@
+const workers = process.env.CI ? 2 : 1
+
 module.exports = {
   default: {
     paths: ['tests/features/**/*.feature'],
@@ -5,5 +7,6 @@ module.exports = {
     requireModule: ['ts-node/register'],
     format: ['json:report/cucumber-report.json'],
     retry: 0,
+    parallel: workers,
   },
 }
