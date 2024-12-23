@@ -35,7 +35,10 @@ jobs:
         run: docker run -e BROWSER=${{ github.event.inputs.browser }} -v "$(pwd)":/app playwright-docker:latest sh -c "yarn install --frozen-lockfile && yarn test:${{ matrix.suite }}"
 
       - name: Generate report
-        run: yarn run posttest
+        run: |
+          chmod -R 755 /report
+          yarn run posttest
+        if: always()
 
       - uses: actions/upload-artifact@v4
         if: always()
