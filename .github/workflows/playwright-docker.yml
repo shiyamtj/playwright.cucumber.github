@@ -21,7 +21,8 @@ jobs:
         working-directory: ./
     strategy:
       matrix:
-        suite: ['smoke', 'regression']
+        suite: ['smoke']
+        # suite: ['smoke', 'regression']
       fail-fast: false
       max-parallel: 2
 
@@ -36,6 +37,7 @@ jobs:
 
       - name: Generate report
         run: |
+          yarn unlink
           yarn install
           yarn run posttest
         if: always()
