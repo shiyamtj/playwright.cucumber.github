@@ -37,11 +37,13 @@ BeforeAll(async function () {
         })
       }
       break
-    case 'webkit': {
-      global.browser = await webkit.launch({
-        headless: isHeadless,
-      })
-    }
+    case 'webkit':
+      {
+        global.browser = await webkit.launch({
+          headless: isHeadless,
+        })
+      }
+      break
     default:
       throw new Error(`Unsupported browser: ${browser}`)
   }
