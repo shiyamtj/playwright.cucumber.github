@@ -37,7 +37,7 @@ jobs:
       - name: Generate report
         run: |
           ls -la report/
-          chmod -R 777 report
+          mkdir report/screenshots
           yarn run posttest
         if: always()
 
