@@ -58,5 +58,5 @@ jobs:
         if: always()
         with:
           name: cucumber-report
-          path: report/
+          path: tests/report/
           retention-days: 30
