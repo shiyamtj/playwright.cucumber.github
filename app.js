@@ -7,7 +7,7 @@ let currentPage = 1
 // Fetch data from JSON file
 async function loadData() {
   try {
-    const response = await fetch('data.json')
+    const response = await fetch('data.json?t=' + new Date().getTime())
     const data = await response.json()
     originalData = data
     filteredData = [...originalData]
