@@ -36,8 +36,7 @@ jobs:
 
       - name: Generate report
         run: |
-          ls -la report/
-          mkdir report/screenshots
+          yarn install
           yarn run posttest
         if: always()
 
