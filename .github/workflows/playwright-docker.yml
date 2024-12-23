@@ -38,7 +38,7 @@ jobs:
       - name: Generate report
         run: |
           ls -la tests/
-          ls _R tests/
+          ls -R tests/
           yarn run posttest
         if: always()
 
