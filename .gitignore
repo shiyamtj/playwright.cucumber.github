@@ -6,3 +6,5 @@ node_modules/
 report/
 report-history/
 *.json
+.env
+temp/

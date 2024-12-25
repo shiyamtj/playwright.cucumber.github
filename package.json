@@ -6,9 +6,13 @@
   "devDependencies": {
     "@playwright/test": "^1.49.0",
     "@types/node": "^22.10.1",
+    "archiver": "^7.0.1",
+    "axios": "^1.7.9",
     "cross-env": "^7.0.3",
     "cucumber-html-reporter": "^7.2.0",
+    "date-fns": "^4.1.0",
     "dotenv": "^16.4.7",
+    "form-data": "^4.0.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.2"
   },
@@ -16,6 +20,9 @@
     "test": "cross-env cucumber-js",
     "test:smoke": "cross-env cucumber-js -t @smoke",
     "test:regression": "cross-env cucumber-js  -t @regression",
-    "posttest": "cross-env ts-node tests/support/generateReport.ts"
+    "posttest": "cross-env ts-node tests/support/generateReport.ts",
+    "saucedemo:test": "cross-env cucumber-js -t @saucedemo",
+    "xray:import:result": "cross-env XRAY_TEST_PLAN=XDP-4 XRAY_TEST_EXECUTION=XDP-20 ts-node tests/xrayUpdate.ts",
+    "xray:import:features": "cross-env FEATURES_PATH=tests/features/saucedemo ts-node tests/xrayUpdate.ts"
   }
 }

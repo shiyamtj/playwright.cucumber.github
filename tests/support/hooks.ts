@@ -79,7 +79,7 @@ AfterAll(async function () {
 })
 
 // Runs before each scenario
-Before(async function ({ pickle }) {
+Before(async function () {
   const browser = global.browser as Browser
   const browserContext: BrowserContext = await browser.newContext({
     timezoneId: 'Pacific/Auckland',
