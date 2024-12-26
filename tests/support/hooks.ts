@@ -97,7 +97,7 @@ After(async function () {
   const browserContext: BrowserContext = this.browserContext
 
   const screenshot = await page.screenshot({ fullPage: true })
-  this.attach(screenshot, 'image/png')
+  await this.attach(screenshot, 'image/png')
 
   await page.close()
   await browserContext.close()
